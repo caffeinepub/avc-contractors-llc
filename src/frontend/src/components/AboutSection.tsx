@@ -32,42 +32,41 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 lg:py-28 bg-background"
+      className="py-24 lg:py-32 bg-background"
       aria-labelledby="about-heading"
     >
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
           {/* Left – Text */}
           <motion.div
-            initial={{ opacity: 0, x: -32 }}
+            initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block text-orange font-display font-bold text-sm uppercase tracking-widest mb-3">
-              About Us
-            </span>
-            <span className="section-divider" />
+            <span className="section-label">About Us</span>
             <h2
               id="about-heading"
-              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-6 leading-tight"
+              className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-navy mb-7 leading-[1.05]"
             >
-              About AVC Contractors LLC
+              About AVC
+              <br />
+              Contractors LLC
             </h2>
-            <div className="space-y-4 text-foreground/75 font-body text-base lg:text-lg leading-relaxed">
+            <div className="space-y-5 text-foreground/70 font-body text-base lg:text-[1.05rem] leading-[1.75]">
               <p>
                 AVC Contractors LLC is a dedicated home improvement company
                 committed to making families happier in their homes. With over{" "}
@@ -89,13 +88,13 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-4 p-4 bg-orange-light rounded-lg border border-orange/20">
-              <div className="w-12 h-12 bg-orange rounded-lg flex items-center justify-center flex-shrink-0 shadow-cta">
-                <Shield className="w-6 h-6 text-white" strokeWidth={2.5} />
+            <div className="mt-9 flex items-start gap-4 p-5 bg-orange-light rounded-2xl border border-orange/15">
+              <div className="w-11 h-11 bg-orange rounded-xl flex items-center justify-center flex-shrink-0 shadow-cta mt-0.5">
+                <Shield className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
-              <p className="font-body font-semibold text-navy text-sm leading-snug">
-                Licensed, Insured & Bonded for your complete protection. We take
-                pride in operating with integrity and transparency on every job.
+              <p className="font-body font-semibold text-navy text-sm leading-relaxed">
+                Licensed, Insured & Bonded for your complete protection. We
+                operate with integrity and transparency on every single job.
               </p>
             </div>
           </motion.div>
@@ -106,7 +105,7 @@ export default function AboutSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {highlights.map((item) => {
               const Icon = item.icon;
@@ -114,12 +113,12 @@ export default function AboutSection() {
                 <motion.div
                   key={item.title}
                   variants={itemVariants}
-                  className="group p-6 bg-card border border-border rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                  className="group p-7 bg-card border border-border rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 cursor-default"
                 >
-                  <div className="w-11 h-11 bg-navy rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange transition-colors duration-300">
+                  <div className="w-11 h-11 bg-navy rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange transition-colors duration-300">
                     <Icon className="w-5 h-5 text-white" strokeWidth={2.5} />
                   </div>
-                  <h3 className="font-display font-bold text-navy text-base mb-2">
+                  <h3 className="font-display font-bold text-navy text-[0.95rem] mb-2 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-muted-foreground text-sm font-body leading-relaxed">

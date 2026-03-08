@@ -9,14 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  CheckCircle2,
-  Globe,
-  Loader2,
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { CheckCircle2, Globe, Loader2, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -111,55 +104,54 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-28 bg-secondary"
+      className="py-24 lg:py-32 bg-secondary"
       aria-labelledby="contact-heading"
     >
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.55 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-orange font-display font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="section-label" style={{ justifyContent: "center" }}>
             Contact
           </span>
-          <span className="section-divider mx-auto" />
           <h2
             id="contact-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4"
+            className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-navy mb-5 leading-[1.05]"
           >
             Get In Touch
           </h2>
-          <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground font-body text-lg max-w-xl mx-auto leading-relaxed">
             Ready to start your project? Call us today or fill out the form
             below and we'll get back to you shortly.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-5 gap-8 xl:gap-12 max-w-6xl mx-auto">
           {/* Left sidebar – contact info */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 space-y-5"
           >
-            {/* Phone CTA */}
-            <div className="bg-navy rounded-2xl p-7 text-white">
-              <h3 className="font-display font-bold text-xl mb-2">
+            {/* Phone CTA block */}
+            <div className="bg-navy rounded-3xl p-8 text-white">
+              <h3 className="font-display font-bold text-xl mb-2 leading-tight">
                 Call Us Directly
               </h3>
-              <p className="text-white/70 text-sm font-body mb-5">
+              <p className="text-white/60 text-sm font-body mb-6 leading-relaxed">
                 Have questions? We're happy to talk through your project over
                 the phone.
               </p>
               <a href="tel:5550000000" className="block w-full">
                 <Button
                   size="lg"
-                  className="w-full bg-orange hover:bg-orange-hover text-white font-display font-bold text-base gap-2.5 shadow-cta hover:shadow-cta-hover transition-all"
+                  className="w-full bg-orange hover:bg-orange-hover text-white font-display font-bold text-base gap-2.5 shadow-cta hover:shadow-cta-hover transition-all rounded-xl"
                 >
                   <Phone className="w-5 h-5" strokeWidth={2.5} />
                   (555) 000-0000
@@ -168,49 +160,35 @@ export default function ContactSection() {
             </div>
 
             {/* Info cards */}
-            <div className="space-y-4">
-              <div className="flex items-start gap-4 p-5 bg-card border border-border rounded-xl shadow-card">
-                <div className="w-10 h-10 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Globe className="w-5 h-5 text-white" strokeWidth={2} />
+            <div className="space-y-3">
+              <div className="flex items-start gap-4 p-5 bg-card border border-border rounded-2xl shadow-card">
+                <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Globe className="w-4.5 h-4.5 text-white" strokeWidth={2} />
                 </div>
                 <div>
-                  <p className="font-display font-bold text-navy text-sm mb-0.5">
+                  <p className="font-display font-bold text-navy text-sm mb-1">
                     Website
                   </p>
                   <a
-                    href="https://avccontractors.com/"
+                    href="https://avchandymanservices.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-orange hover:underline font-body text-sm font-semibold"
                   >
-                    avccontractors.com
+                    avchandymanservices.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-5 bg-card border border-border rounded-xl shadow-card">
-                <div className="w-10 h-10 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-white" strokeWidth={2} />
+              <div className="flex items-start gap-4 p-5 bg-card border border-border rounded-2xl shadow-card">
+                <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="w-4.5 h-4.5 text-white" strokeWidth={2} />
                 </div>
                 <div>
-                  <p className="font-display font-bold text-navy text-sm mb-0.5">
-                    Email / Online
-                  </p>
-                  <p className="text-muted-foreground font-body text-sm">
-                    Use the form for all project inquiries
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 bg-card border border-border rounded-xl shadow-card">
-                <div className="w-10 h-10 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-white" strokeWidth={2} />
-                </div>
-                <div>
-                  <p className="font-display font-bold text-navy text-sm mb-0.5">
+                  <p className="font-display font-bold text-navy text-sm mb-1">
                     Service Area
                   </p>
-                  <p className="text-muted-foreground font-body text-sm">
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">
                     Serving local homeowners in the greater area
                   </p>
                 </div>
@@ -220,16 +198,16 @@ export default function ContactSection() {
 
           {/* Right – Form */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <div className="bg-card border border-border rounded-2xl shadow-card p-7 sm:p-9">
+            <div className="bg-card border border-border rounded-3xl shadow-card p-8 sm:p-10">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-5">
+                <div className="flex flex-col items-center justify-center py-14 text-center">
+                  <div className="w-16 h-16 bg-green-50 border border-green-200 rounded-2xl flex items-center justify-center mb-5">
                     <CheckCircle2
                       className="w-8 h-8 text-green-600"
                       strokeWidth={2}
@@ -238,29 +216,31 @@ export default function ContactSection() {
                   <h3 className="font-display font-bold text-navy text-2xl mb-3">
                     Request Sent!
                   </h3>
-                  <p className="text-muted-foreground font-body text-base max-w-sm mb-6">
+                  <p className="text-muted-foreground font-body text-base max-w-sm mb-7 leading-relaxed">
                     Thank you for reaching out. We'll review your project
                     details and get back to you as soon as possible.
                   </p>
                   <Button
                     variant="outline"
                     onClick={() => setSubmitted(false)}
-                    className="border-navy text-navy hover:bg-navy hover:text-white font-semibold"
+                    className="border-navy/20 text-navy hover:bg-navy hover:text-white font-semibold rounded-xl"
                   >
                     Send Another Request
                   </Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                  <h3 className="font-display font-bold text-navy text-xl mb-2">
-                    Request a Free Estimate
-                  </h3>
-                  <p className="text-muted-foreground text-sm font-body mb-5">
-                    Fill out the form and we'll get back to you with a free,
-                    no-obligation estimate.
-                  </p>
+                  <div className="mb-6">
+                    <h3 className="font-display font-bold text-navy text-xl mb-1.5 leading-tight">
+                      Request a Free Estimate
+                    </h3>
+                    <p className="text-muted-foreground text-sm font-body leading-relaxed">
+                      Fill out the form and we'll get back to you with a free,
+                      no-obligation estimate.
+                    </p>
+                  </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     {/* Full Name */}
                     <div className="space-y-1.5">
                       <Label
@@ -276,7 +256,7 @@ export default function ContactSection() {
                         autoComplete="name"
                         value={form.name}
                         onChange={(e) => handleChange("name", e.target.value)}
-                        className={`font-body ${errors.name ? "border-destructive" : ""}`}
+                        className={`font-body rounded-xl ${errors.name ? "border-destructive" : ""}`}
                         aria-describedby={
                           errors.name ? "name-error" : undefined
                         }
@@ -306,7 +286,7 @@ export default function ContactSection() {
                         autoComplete="tel"
                         value={form.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
-                        className={`font-body ${errors.phone ? "border-destructive" : ""}`}
+                        className={`font-body rounded-xl ${errors.phone ? "border-destructive" : ""}`}
                         aria-describedby={
                           errors.phone ? "phone-error" : undefined
                         }
@@ -337,7 +317,7 @@ export default function ContactSection() {
                       autoComplete="email"
                       value={form.email}
                       onChange={(e) => handleChange("email", e.target.value)}
-                      className={`font-body ${errors.email ? "border-destructive" : ""}`}
+                      className={`font-body rounded-xl ${errors.email ? "border-destructive" : ""}`}
                       aria-describedby={
                         errors.email ? "email-error" : undefined
                       }
@@ -367,7 +347,7 @@ export default function ContactSection() {
                     >
                       <SelectTrigger
                         id="service-type"
-                        className={`font-body ${errors.serviceType ? "border-destructive" : ""}`}
+                        className={`font-body rounded-xl ${errors.serviceType ? "border-destructive" : ""}`}
                         aria-describedby={
                           errors.serviceType ? "service-error" : undefined
                         }
@@ -411,7 +391,7 @@ export default function ContactSection() {
                       rows={4}
                       value={form.message}
                       onChange={(e) => handleChange("message", e.target.value)}
-                      className={`font-body resize-none ${errors.message ? "border-destructive" : ""}`}
+                      className={`font-body resize-none rounded-xl ${errors.message ? "border-destructive" : ""}`}
                       aria-describedby={
                         errors.message ? "message-error" : undefined
                       }
@@ -431,7 +411,7 @@ export default function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={mutation.isPending}
-                    className="w-full bg-orange hover:bg-orange-hover text-white font-display font-bold text-base shadow-cta hover:shadow-cta-hover transition-all disabled:opacity-70"
+                    className="w-full bg-orange hover:bg-orange-hover text-white font-display font-bold text-base shadow-cta hover:shadow-cta-hover transition-all disabled:opacity-70 rounded-xl"
                   >
                     {mutation.isPending ? (
                       <>
@@ -443,7 +423,7 @@ export default function ContactSection() {
                     )}
                   </Button>
 
-                  <p className="text-muted-foreground text-xs font-body text-center">
+                  <p className="text-muted-foreground text-xs font-body text-center pt-1">
                     Serious inquiries only. We'll respond within 24 hours on
                     business days.
                   </p>
